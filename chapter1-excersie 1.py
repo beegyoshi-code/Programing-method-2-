@@ -42,25 +42,30 @@
 #END PRORAM
 
 #PYTHON CODE 
- def celsius_to_fahrenheit (temp_c: float) -> float:
-    return temp_c *9/5 + 32 
+ 
+def celsius_to_fahrenheit(temp_c: float) -> float:
+    return temp_c * 9/5 + 32 
 
-temperature_c = 70  
-voltage=12.0
-system_name="Temperature sensor"
-is_running= True
+temperature_c = 70.0  
+voltage = 12.0
+system_name = "Temperature sensor"
+is_running = True
 
+# Conversion logic
 temperature_f = celsius_to_fahrenheit(temperature_c)
 
-temp_safe = 0.0 <= temperature_c <= 80
+# Safety Logic
+temp_safe = 0.0 <= temperature_c <= 80.0
 voltage_safe = 0.0 <= voltage <= 24.0
 system_safe = temp_safe and voltage_safe
 
-status="OK" if system_safe else "FAULT"
+# Ternary operator for status
+status = "OK" if system_safe else "FAULT"
 
+# Corrected Print Formatting
 print(
-  f"[{system_name}]"
-  f"Temp: "{temperature_c:. 1f } C ({temperature_f:.1f} F),
-  f"volatge"{voltage:.1f} V,
-  f"Status" {status}
+    f"[{system_name}] "
+    f"Temp: {temperature_c:.1f} C ({temperature_f:.1f} F), "
+    f"Voltage: {voltage:.1f} V, "
+    f"Status: {status}"
 )
